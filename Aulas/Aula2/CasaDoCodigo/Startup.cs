@@ -52,7 +52,7 @@ namespace CasaDoCodigo
             });
 
             //garante que o banco será criado sozinho
-            serviceProvider.GetService<ApplicationContext>().Database.EnsureCreated();
+            serviceProvider.GetService<ApplicationContext>().Database.Migrate();
         }
     }
 }
