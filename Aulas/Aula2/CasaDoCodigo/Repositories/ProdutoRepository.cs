@@ -15,6 +15,11 @@ namespace CasaDoCodigo.Repositories
             this.context = context;
         }
 
+        public IList<Produto> GetProdutos()
+        {
+            return context.Set<Produto>().ToList();
+        }
+
         public void SaveProdutos(List<Livro> livros)
         {
             //adiciona todos os itens de livros no banco
