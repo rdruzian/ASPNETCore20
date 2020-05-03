@@ -29,11 +29,16 @@ class Carrinho {
     }
 
     postQtde(data) {
+        let token = $('[name=__RequestVerificationToken]').val();
+
+        let headers = {};
+        headers['RequesteVerificationToken'] = token;
         $.ajax({
             url: '/pedido/updateqtde',
             type: 'POST',
             contentType: 'application/json',
-            data: JSON.stringify(data)
+            data: JSON.stringify(data),
+            headers: headers
         }).done(function (response) {
             let itemPedido = response.itemPedido;
             let linhaItem = $('[item-id=' + itemPedido.id + ']');
